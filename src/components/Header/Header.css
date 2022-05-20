@@ -1,17 +1,37 @@
+header {
+	background-color: rgb(37, 50, 55);
+}
+
 .navbar {
 	display: flex;
 	padding: 1rem;
-    background-color: black;
-    align-items: center;
-}
-
-.user-navbar {
-	position: absolute;
-	right: 10px;
+	align-items: center;
+	width: 80%;
+	margin: auto;
+	justify-content: space-between;
 }
 
 .button {
 	margin: 1rem;
-    text-decoration: none;
-    color: white;
+	text-decoration: none;
+	color: white;
+	font-weight: 700;
+	border-bottom: 3px solid transparent;
+}
+
+.button:hover {
+	border-bottom: 3px solid white;
+}
+
+.activeNavStyle {
+	text-decoration: underline;
+	text-decoration-thickness: 3px;
+}
+
+.main-navbar {
+	display: flex;
+}
+
+.logo {
+	margin-right: 3rem;
 }
