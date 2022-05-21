@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header.js";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/Footer/Footer.js";
 
 function App() {
 	return (
@@ -12,7 +13,10 @@ function App() {
 				<Routes>
 					<Route path="/" />
 				</Routes>
-			</main>
+      </main>
+      
+      <Footer />
+
 		</div>
 	);
 }
