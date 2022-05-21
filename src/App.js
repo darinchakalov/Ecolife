@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header.js";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
 	return (

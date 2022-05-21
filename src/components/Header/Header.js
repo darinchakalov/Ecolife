@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { Dropdown, NavItem } from "react-bootstrap";
 import "./Header.css";
 
 export default function Header() {
@@ -21,6 +22,22 @@ export default function Header() {
 		</div>
 	);
 
+	let loggedInUserNavigation = (
+		<div id="user">
+			<Dropdown as={NavItem}>
+				<Dropdown.Toggle className="button" to="" as={NavLink}>
+					<i class="fa-solid fa-user"></i>
+				</Dropdown.Toggle>
+				<Dropdown.Menu>
+					<Dropdown.Item>Profile</Dropdown.Item>
+					<Dropdown.Item>Add products</Dropdown.Item>
+					<Dropdown.Item>Logout</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
+			;
+		</div>
+	);
+
 	return (
 		<header id="site-header">
 			<nav className="navbar">
@@ -28,7 +45,11 @@ export default function Header() {
 					<Link className="logo" to="/">
 						<img src="/images/ecolife-logo.jpg" alt="logo" />
 					</Link>
-					<NavLink className="button" to="/" style={({ isActive }) => (isActive ? activeNavStyle : undefined)}>
+					<NavLink
+						className="button"
+						to="/"
+						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
+					>
 						Home
 					</NavLink>
 					<NavLink

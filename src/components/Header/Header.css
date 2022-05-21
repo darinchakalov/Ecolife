@@ -35,3 +35,9 @@ header {
 .logo {
 	margin-right: 3rem;
 }
+
+#user {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
