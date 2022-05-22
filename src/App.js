@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header.js";
+import Header from "./components/Core/Header/Header.js";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./components/Footer/Footer.js";
+import Footer from "./components/Core/Footer/Footer.js";
+import Home from "./components/Home/Home.js";
 
 function App() {
 	return (
@@ -11,12 +12,11 @@ function App() {
 
 			<main className="site-content">
 				<Routes>
-					<Route path="/" />
+					<Route path="/" element={<Home />} />
 				</Routes>
-      </main>
-      
-      <Footer />
+			</main>
 
+			<Footer />
 		</div>
 	);
 }
