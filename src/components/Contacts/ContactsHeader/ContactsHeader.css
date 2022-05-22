@@ -1,0 +1,19 @@
+.contacts-header-content{
+    background-image: url(/public/images/conacts-header.jpg);
+    background-position: center center;
+    /* background-size:contain; */
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 6rem;
+}
+
+.contacts-header-wrapper h1 {
+    font-size: 2rem;
+    /* color: white; */
+    text-align: center;
+}

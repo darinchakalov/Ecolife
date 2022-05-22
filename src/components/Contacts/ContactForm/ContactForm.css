@@ -1,0 +1,22 @@
+.contact-form-wrapper {
+	display: flex;
+	width: 80%;
+	margin: auto;
+	justify-content: space-around;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+
+.contact-form-wrapper * {
+	width: 100%;
+}
+
+.contact-form-wrapper i {
+	color: rgb(122, 122, 122);
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}

@@ -4,6 +4,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Core/Footer/Footer.js";
 import Home from "./components/Home/Home.js";
+import Contacts from "./components/Contacts/Contacts.js";
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			<main className="site-content">
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path="/contacts" element={<Contacts />} />
 				</Routes>
 			</main>
 

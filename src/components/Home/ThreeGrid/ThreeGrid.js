@@ -3,6 +3,7 @@ import "./ThreeGrid.css";
 
 export default function ThreeGrid() {
 	return (
+		//TODO each link to different product
 		<div className="grid-container">
 			<div className="big-left-grid grid-box">
 				<Link to="/shop">

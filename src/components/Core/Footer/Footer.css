@@ -5,8 +5,8 @@ footer {
 
 .footer-wrapper {
 	display: flex;
-    width: 80%;
-    margin: auto;
+	width: 80%;
+	margin: auto;
 }
 
 .info-section {
@@ -39,8 +39,8 @@ footer {
 }
 
 .contacts-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 }
