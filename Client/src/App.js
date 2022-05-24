@@ -8,7 +8,8 @@ import Register from "./components/User/Register/Register.js";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { AuthProvider } from "./components/context/AuthContext.js";
+import { AuthProvider } from "./context/AuthContext.js";
+import Profile from "./components/User/Profile/Profile.js";
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 						<Route path="/contacts" element={<Contacts />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
+						<Route path="/profile" element={<Profile />} />
 					</Routes>
 				</main>
 

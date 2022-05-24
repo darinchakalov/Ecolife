@@ -1,5 +1,5 @@
 import * as authService from "../../../services/authSerivce.js";
-import { useAuthContext } from "../../context/AuthContext.js";
+import { useAuthContext } from "../../../context/AuthContext.js";
 import { useNavigate } from "react-router-dom";
 
 import "./Login.css";

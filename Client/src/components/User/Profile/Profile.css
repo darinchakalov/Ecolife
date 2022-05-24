@@ -1,0 +1,47 @@
+.profile-page-wrapper {
+  background-image: url(/public/images/berries-background.jpg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.profile-wrapper {
+  margin-top: 2rem;
+  background-color: white;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.profile-data-wrapper {
+  flex-basis: 50%;
+}
+
+.profile-data-wrapper h2 {
+  text-align: center;
+}
+
+.profile-img-wrapper img {
+  max-width: 289px;
+}
+
+.profile-button-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.profile-button-wrapper a {
+  background-color: rgb(52, 84, 203);
+  color: white !important;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}

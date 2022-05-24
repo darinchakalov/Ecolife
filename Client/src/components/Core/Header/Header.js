@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown, NavItem } from "react-bootstrap";
 import "./Header.css";
-import { useAuthContext } from "../../context/AuthContext.js";
+import { useAuthContext } from "../../../context/AuthContext.js";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
