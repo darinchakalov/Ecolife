@@ -1,4 +1,4 @@
-.login-page-wrapper {
+.register-page-wrapper {
 	background-image: url("/public/images/berries-background.jpg");
 	height: 100vh;
 	display: flex;
@@ -6,7 +6,7 @@
 	align-items: center;
 }
 
-.login-content-wrapper {
+.register-content-wrapper {
 	background-color: white;
 	width: 60%;
 	height: 60%;
@@ -17,25 +17,25 @@
 	box-shadow: 5px 5px 5px rgb(82, 80, 80);
 }
 
-.login-form-wrapper {
+.register-form-wrapper {
 	flex-basis: 50%;
 }
 
-.login-form-wrapper h3 {
+.register-form-wrapper h3 {
 	text-align: center;
 }
 
-.login-form-wrapper form {
+.register-form-wrapper form {
 	display: flex;
 	flex-direction: column;
 }
 
-.login-form-wrapper form label {
+.register-form-wrapper form label {
 	text-align: center;
 	font-size: 1rem;
 }
 
-.login-form-wrapper form input {
+.register-form-wrapper form input {
 	border-radius: 5px;
 	border-style: none;
 	background-color: rgb(233, 233, 233);
@@ -44,11 +44,11 @@
 	text-align: center;
 }
 
-.login-form-wrapper form button {
+.register-button {
 	margin: auto;
 	width: 40%;
 	border-style: none;
-	background-color: rgb(52, 84, 203);
+	background-color: rgb(52, 84, 203) !important;
 	border-radius: 5px;
 	padding: 0.5rem 0.5rem;
 	color: white;

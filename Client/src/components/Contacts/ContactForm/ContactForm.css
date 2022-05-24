@@ -41,6 +41,7 @@
 	background-color: rgb(233, 233, 233);
 	height: 2rem;
 	margin-bottom: 1rem;
+	text-align: center;
 }
 
 .contact-form-wrapper form textarea {

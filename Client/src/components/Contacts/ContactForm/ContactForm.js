@@ -19,9 +19,9 @@ export default function ContactForm() {
 				<h2>Contact Us</h2>
 				<form className="contact-form">
 					<label for="name">Name</label>
-					<input type="name" name="" value="" />
+					<input type="name" name="" placeholder="Ivan" />
 					<label for="email">Email</label>
-					<input type="email" name="" value="" />
+					<input type="email" name="" placeholder="ivan@abv.bg" />
 					<label for="message">Message</label>
 					<textarea name="message" rows="10" cols=""></textarea>
 					<button className="submit-button" type="submit">
