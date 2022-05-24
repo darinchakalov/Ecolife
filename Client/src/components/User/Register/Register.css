@@ -1,0 +1,55 @@
+.login-page-wrapper {
+	background-image: url("/public/images/berries-background.jpg");
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-content-wrapper {
+	background-color: white;
+	width: 60%;
+	height: 60%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px grey;
+}
+
+.login-form-wrapper {
+	flex-basis: 50%;
+}
+
+.login-form-wrapper h3 {
+	text-align: center;
+}
+
+.login-form-wrapper form {
+	display: flex;
+	flex-direction: column;
+}
+
+.login-form-wrapper form label {
+	text-align: center;
+	font-size: 1rem;
+}
+
+.login-form-wrapper form input {
+	border-radius: 5px;
+	border-style: none;
+	background-color: rgb(233, 233, 233);
+	height: 2rem;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.login-form-wrapper form button {
+	margin: auto;
+	width: 40%;
+	border-style: none;
+	background-color: rgb(52, 84, 203);
+	border-radius: 5px;
+	padding: 0.5rem 0.5rem;
+	color: white;
+}
