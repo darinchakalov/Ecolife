@@ -21,6 +21,7 @@ header {
 
 .button:hover {
 	border-bottom: 3px solid white;
+	color: darkgray;
 }
 
 .activeNavStyle {
@@ -40,4 +41,8 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.shopping-cart {
+	color: white !important;
 }

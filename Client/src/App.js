@@ -8,23 +8,26 @@ import Register from "./components/User/Register/Register.js";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { AuthProvider } from "./components/context/AuthContext.js";
 
 function App() {
 	return (
-		<div className="App">
-			<Header />
+		<AuthProvider>
+			<div className="App">
+				<Header />
 
-			<main className="site-content">
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/contacts" element={<Contacts />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
-				</Routes>
-			</main>
+				<main className="site-content">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/contacts" element={<Contacts />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+					</Routes>
+				</main>
 
-			<Footer />
-		</div>
+				<Footer />
+			</div>
+		</AuthProvider>
 	);
 }
 

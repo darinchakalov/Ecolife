@@ -1,8 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown, NavItem } from "react-bootstrap";
 import "./Header.css";
+import { useAuthContext } from "../../context/AuthContext.js";
+import Badge from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function Header() {
+	const { user, logout } = useAuthContext();
+
+	const logoutHandler = () => {
+		logout();
+	};
+
 	let activeNavStyle = {
 		borderBottom: "3px solid white",
 	};
@@ -24,14 +33,23 @@ export default function Header() {
 
 	let loggedInUserNavigation = (
 		<div id="user">
+			<NavLink to="/cart">
+				<Badge badgeContent={4} color="primary">
+					<ShoppingCartIcon className="shopping-cart" color="action" />
+				</Badge>
+			</NavLink>
 			<Dropdown as={NavItem}>
 				<Dropdown.Toggle className="button" to="" as={NavLink}>
 					<i class="fa-solid fa-user"></i>
 				</Dropdown.Toggle>
 				<Dropdown.Menu>
-					<Dropdown.Item>Profile</Dropdown.Item>
-					<Dropdown.Item>Add products</Dropdown.Item>
-					<Dropdown.Item>Logout</Dropdown.Item>
+					<Dropdown.Item as={Link} to="/profile">
+						Profile
+					</Dropdown.Item>
+					<Dropdown.Item as={Link} to="/create">
+						Add products
+					</Dropdown.Item>
+					<Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
 				</Dropdown.Menu>
 			</Dropdown>
 			;
@@ -74,7 +92,7 @@ export default function Header() {
 						Contact us
 					</NavLink>
 				</section>
-				<section className="user-navbar">{guestNavigation}</section>
+				<section className="user-navbar">{user.email ? loggedInUserNavigation : guestNavigation}</section>
 			</nav>
 		</header>
 	);

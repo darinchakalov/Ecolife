@@ -14,6 +14,8 @@ const removePassword = (data) => {
 function register(req, res, next) {
 	const { email, username, password, repeatPassword } = req.body;
 
+	console.log(req.body);
+
 	return userModel
 		.create({ email, username, password, isAdmin: false })
 		.then((createdUser) => {
