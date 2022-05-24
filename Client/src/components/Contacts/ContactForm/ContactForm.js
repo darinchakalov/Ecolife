@@ -2,7 +2,7 @@ import "./ContactForm.css";
 
 export default function ContactForm() {
 	return (
-		<div className="contact-form-wrapper">
+		<div className="contact-form-page-wrapper">
 			<div className="contact-info-wrapper">
 				<h2>Store Information</h2>
 				<p>
@@ -15,7 +15,7 @@ export default function ContactForm() {
 					<i class="fa-solid fa-envelope"></i> Email us: demo@ecolife.com
 				</p>
 			</div>
-			<div className="contact-from-wrapper">
+			<div className="contact-form-wrapper">
 				<h2>Contact Us</h2>
 				<form className="contact-form">
 					<label for="name">Name</label>

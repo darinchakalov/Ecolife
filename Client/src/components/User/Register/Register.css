@@ -14,7 +14,7 @@
 	justify-content: space-around;
 	align-items: center;
 	border-radius: 10px;
-	box-shadow: 5px 5px 5px grey;
+	box-shadow: 5px 5px 5px rgb(82, 80, 80);
 }
 
 .login-form-wrapper {
