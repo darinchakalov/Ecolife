@@ -18,11 +18,15 @@ export default function Header() {
 
 	let guestNavigation = (
 		<div id="guest">
-			<NavLink className="button" to="/login" style={({ isActive }) => (isActive ? activeNavStyle : undefined)}>
+			<NavLink
+				className="nav-button"
+				to="/login"
+				style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
+			>
 				Login
 			</NavLink>
 			<NavLink
-				className="button"
+				className="nav-button"
 				to="/register"
 				style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
 			>
@@ -39,14 +43,14 @@ export default function Header() {
 				</Badge>
 			</NavLink>
 			<Dropdown as={NavItem}>
-				<Dropdown.Toggle className="button" to="" as={NavLink}>
+				<Dropdown.Toggle className="drop-down-button">
 					<i class="fa-solid fa-user"></i>
 				</Dropdown.Toggle>
 				<Dropdown.Menu>
 					<Dropdown.Item as={Link} to="/profile">
 						Profile
 					</Dropdown.Item>
-					<Dropdown.Item as={Link} to="/create">
+					<Dropdown.Item as={Link} to="/products/create">
 						Add products
 					</Dropdown.Item>
 					<Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
@@ -64,28 +68,28 @@ export default function Header() {
 						<img src="/images/ecolife-logo.jpg" alt="logo" />
 					</Link>
 					<NavLink
-						className="button"
+						className="nav-button"
 						to="/"
 						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
 					>
 						Home
 					</NavLink>
 					<NavLink
-						className="button"
+						className="nav-button"
 						to="/about"
 						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
 					>
 						About
 					</NavLink>
 					<NavLink
-						className="button"
+						className="nav-button"
 						to="/shop"
 						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
 					>
 						Shop
 					</NavLink>
 					<NavLink
-						className="button"
+						className="nav-button"
 						to="/contacts"
 						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
 					>

@@ -11,7 +11,7 @@ header {
 	justify-content: space-between;
 }
 
-.button {
+.nav-button {
 	margin: 1rem;
 	text-decoration: none;
 	color: white;
@@ -19,7 +19,7 @@ header {
 	border-bottom: 3px solid transparent;
 }
 
-.button:hover {
+.nav-button:hover {
 	border-bottom: 3px solid white;
 	color: darkgray;
 }
@@ -45,4 +45,10 @@ header {
 
 .shopping-cart {
 	color: white !important;
+}
+
+.drop-down-button {
+	margin-left: 1rem;
+	background-color: transparent !important;
+	border-style: none !important;
 }

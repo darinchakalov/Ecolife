@@ -10,6 +10,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthProvider } from "./context/AuthContext.js";
 import Profile from "./components/User/Profile/Profile.js";
+import Create from "./components/Products/Create/Create.js";
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 				<main className="site-content">
 					<Routes>
 						<Route path="/" element={<Home />} />
+						<Route path="/products/create" element={<Create />} />
 						<Route path="/contacts" element={<Contacts />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
