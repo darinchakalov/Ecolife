@@ -16,7 +16,11 @@ export default function Login() {
 
 		authService
 			.login(email, password)
-			.then((loginData) => login(loginData), navigate("/"))
+			.then((loginData) => {
+				login(loginData);
+				console.log(loginData);
+				navigate("/");
+			})
 			.catch((err) => console.log(err));
 	};
 

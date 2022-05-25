@@ -13,9 +13,6 @@ const removePassword = (data) => {
 
 function register(req, res, next) {
 	const { email, username, password, repeatPassword } = req.body;
-
-	console.log(req.body);
-
 	return userModel
 		.create({ email, username, password, isAdmin: false })
 		.then((createdUser) => {
@@ -23,6 +20,7 @@ function register(req, res, next) {
 			createdUser = removePassword(createdUser);
 
 			const token = utils.jwt.createToken({ id: createdUser._id });
+			createdUser.token = token;
 			if (process.env.NODE_ENV === "production") {
 				res.cookie(authCookieName, token, { httpOnly: true, sameSite: "none", secure: true });
 			} else {
@@ -59,7 +57,7 @@ function login(req, res, next) {
 			user = removePassword(user);
 
 			const token = utils.jwt.createToken({ id: user._id });
-
+			user.token = token;
 			if (process.env.NODE_ENV === "production") {
 				res.cookie(authCookieName, token, { httpOnly: true, sameSite: "none", secure: true });
 			} else {

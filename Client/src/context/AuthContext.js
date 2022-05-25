@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
 
 	const login = (authData) => {
 		setUser(authData);
+		document.cookie = "auth-cookie=" + authData.token;
 	};
 
 	const logout = () => {
