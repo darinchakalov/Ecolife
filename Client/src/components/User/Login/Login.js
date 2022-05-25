@@ -18,7 +18,6 @@ export default function Login() {
 			.login(email, password)
 			.then((loginData) => {
 				login(loginData);
-				console.log(loginData);
 				navigate("/");
 			})
 			.catch((err) => console.log(err));

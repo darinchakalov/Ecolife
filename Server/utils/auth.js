@@ -4,7 +4,6 @@ const { userModel, tokenBlacklistModel } = require("../models");
 
 function auth(redirectUnauthenticated = true) {
 	return function (req, res, next) {
-		console.log(req.cookies);
 		const token = req.cookies[authCookieName] || "";
 		Promise.all([jwt.verifyToken(token), tokenBlacklistModel.findOne({ token })])
 			.then(([data, blacklistedToken]) => {

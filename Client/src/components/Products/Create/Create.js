@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as productService from "../../../services/productService.js";
 
 import "./Create.css";
 
 export default function Create() {
+	const navigate = useNavigate();
+
 	const createProductHandler = (e) => {
 		e.preventDefault();
 
@@ -11,7 +13,7 @@ export default function Create() {
 
 		productService
 			.createProduct({ ...productData })
-			.then((data) => console.log(data))
+			.then(() => navigate("/"))
 			.catch((err) => console.log(err));
 	};
 
@@ -32,10 +34,10 @@ export default function Create() {
 						Price
 					</label>
 					<input className="create-form-input" type="number" name="price" placeholder="12.55" />
-					<label className="create-from-label" for="image">
+					<label className="create-from-label" for="imgUrl">
 						Image
 					</label>
-					<input className="create-form-input" type="text" name="image" />
+					<input className="create-form-input" type="text" name="imgUrl" />
 					<label className="create-from-label" for="description">
 						Description
 					</label>
