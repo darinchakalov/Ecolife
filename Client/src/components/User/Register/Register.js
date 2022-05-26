@@ -29,13 +29,13 @@ export default function Register() {
 				<div className="register-form-wrapper">
 					<h3>Create your new account</h3>
 					<form className="register-form" method="POST" onSubmit={registerHandler}>
-						<label htmlForm="username">Username</label>
+						<label htmlFor="username">Username</label>
 						<input className="form-input" type="text" name="username" placeholder="codemonkey12" />
-						<label htmlForm="email">Email</label>
+						<label htmlFor="email">Email</label>
 						<input className="form-input" type="text" name="email" placeholder="ivan@abv.bg" />
-						<label htmlForm="password">Password</label>
+						<label htmlFor="password">Password</label>
 						<input className="form-input" type="password" name="password" placeholder="******" />
-						<label htmlForm="rePass">Repeat Password</label>
+						<label htmlFor="rePass">Repeat Password</label>
 						<input className="form-input" type="password" name="rePass" placeholder="*******" />
 						<input className="register-button" type="submit" value="Register" />
 					</form>

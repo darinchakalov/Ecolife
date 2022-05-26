@@ -10,3 +10,7 @@ export const createProduct = (productData) => {
 		body: JSON.stringify(productData),
 	}).then((res) => res.json());
 };
+
+export const getAllProducts = () => {
+	return fetch(`${baseUrl}/products`).then((res) => res.json());
+};

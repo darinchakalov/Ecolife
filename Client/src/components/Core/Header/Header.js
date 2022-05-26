@@ -44,7 +44,7 @@ export default function Header() {
 			</NavLink>
 			<Dropdown as={NavItem}>
 				<Dropdown.Toggle className="drop-down-button">
-					<i class="fa-solid fa-user"></i>
+					<i className="fa-solid fa-user"></i>
 				</Dropdown.Toggle>
 				<Dropdown.Menu>
 					<Dropdown.Item as={Link} to="/profile">
@@ -83,7 +83,7 @@ export default function Header() {
 					</NavLink>
 					<NavLink
 						className="nav-button"
-						to="/shop"
+						to="/products"
 						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
 					>
 						Shop

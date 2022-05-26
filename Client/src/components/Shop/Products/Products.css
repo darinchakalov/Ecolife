@@ -1,0 +1,10 @@
+.shop-page-header{
+    background-image: url(/public/images/conacts-header.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-page-header h2 {
+    margin: 5rem;
+}

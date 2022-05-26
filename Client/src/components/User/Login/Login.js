@@ -32,9 +32,9 @@ export default function Login() {
 				<div className="login-form-wrapper">
 					<h3>Log into your account</h3>
 					<form className="login-form" method="POST" onSubmit={loginHandler}>
-						<label for="email">Email</label>
+						<label htmlFor="email">Email</label>
 						<input className="form-input" type="text" name="email" />
-						<label for="">Password</label>
+						<label htmlFor="">Password</label>
 						<input className="form-input" type="password" name="password" />
 						<input className="login-button" type="submit" value="Login" />
 					</form>

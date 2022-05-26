@@ -6,23 +6,23 @@ export default function ContactForm() {
 			<div className="contact-info-wrapper">
 				<h2>Store Information</h2>
 				<p>
-					<i class="fa-solid fa-location-dot"></i> Ecolife Responsive Website
+					<i className="fa-solid fa-location-dot"></i> Ecolife Responsive Website
 				</p>
 				<p>
-					<i class="fa-solid fa-phone"></i> Call us: (+800)345678
+					<i className="fa-solid fa-phone"></i> Call us: (+800)345678
 				</p>
 				<p>
-					<i class="fa-solid fa-envelope"></i> Email us: demo@ecolife.com
+					<i className="fa-solid fa-envelope"></i> Email us: demo@ecolife.com
 				</p>
 			</div>
 			<div className="contact-form-wrapper">
 				<h2>Contact Us</h2>
 				<form className="contact-form">
-					<label for="name">Name</label>
+					<label htmlFor="name">Name</label>
 					<input type="name" name="" placeholder="Ivan" />
-					<label for="email">Email</label>
+					<label htmlFor="email">Email</label>
 					<input type="email" name="" placeholder="ivan@abv.bg" />
-					<label for="message">Message</label>
+					<label htmlFor="message">Message</label>
 					<textarea name="message" rows="10" cols=""></textarea>
 					<button className="submit-button" type="submit">
 						Submit
