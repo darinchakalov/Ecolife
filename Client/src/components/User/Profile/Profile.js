@@ -28,7 +28,7 @@ export default function Profile() {
 				</div>
 				<div className="profile-data-wrapper">
 					<h2 className="username-header">{user.username}`s account</h2>
-					{user.isAdmin ? <p>You have created {user.products.length} products.</p> : ''}
+					{user.isAdmin ? <p>Products in the store: 0</p> : ""}
 					{user.isAdmin ? <p>Account type: Admin</p> : <p>Account type: Customer</p>}
 
 					{user.isAdmin ? adminButtons : customerButtons}

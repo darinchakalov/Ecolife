@@ -20,8 +20,8 @@ export default function Create() {
 	return (
 		<div className="create-page-wrapper">
 			<div className="create-wrapper">
-				<h2>Create a new product</h2>
 				<form className="create-form" method="POST" onSubmit={createProductHandler}>
+					<h2 className="create-form-heading">Create a new product</h2>
 					<label className="create-from-label" for="name">
 						Product name
 					</label>

@@ -29,8 +29,8 @@ export default function Edit() {
 	return (
 		<div className="edit-page-wrapper">
 			<div className="edit-wrapper">
-				<h2>Edit product</h2>
 				<form className="edit-form" method="POST" onSubmit={editProductHandler}>
+					<h2 className="edit-form-heading">Edit product</h2>
 					<label className="edit-from-label" htmlFor="name">
 						Product name
 					</label>
