@@ -6,17 +6,17 @@ export default function ThreeGrid() {
 		//TODO each link to different product
 		<div className="grid-container">
 			<div className="big-left-grid grid-box">
-				<Link to="/shop">
+				<Link to="/products">
 					<img src="/images/threeGrid/1_3.jpg" alt="" />
 				</Link>
 			</div>
 			<div className="top-right-grid grid-box">
-				<Link to="/shop">
+				<Link to="/products">
 					<img src="/images/threeGrid/2_3.jpg" alt="" />
 				</Link>
 			</div>
 			<div className="bottom-right-grid grid-box">
-				<Link to="/shop">
+				<Link to="/products">
 					<img src="/images/threeGrid/3_3.jpg" alt="" />
 				</Link>
 			</div>

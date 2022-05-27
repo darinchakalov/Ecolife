@@ -26,7 +26,7 @@ export default function Carousel() {
 							<div className="slider-text-container">
 								<p>100% PURE & NATURAL</p>
 								<h1>{fadeImage.h1}</h1>{" "}
-								<Link className="slider-button" to="/shop">
+								<Link className="slider-button" to="/products">
 									SHOP NOW
 								</Link>
 							</div>

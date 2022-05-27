@@ -1,8 +1,25 @@
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../../context/AuthContext.js";
 
 import "./Product.css";
 
 export default function Product({ product }) {
+	const { user } = useAuthContext();
+
+	const addToCartHandeler = (id) => {
+		console.log(product._id);
+	};
+
+
+
+	const hiddenButton = (
+		<div className="hidden-button">
+			<button className="product-details-button" type="button" onClick={addToCartHandeler}>
+				ADD TO CART
+			</button>
+		</div>
+	);
+
 	return (
 		<div id="product-wrapper" className="product-wrapper">
 			<div className="product-image-wrapper">
@@ -16,11 +33,7 @@ export default function Product({ product }) {
 			<div className="product-info-wrapper">
 				<h5>{product.name}</h5>
 				<p className="product-price">Price ${product.price}</p>
-				<div className="hidden-button">
-					<Link className="product-details-button" to={`/products/${product._id}`}>
-						Add to cart
-					</Link>
-				</div>
+				{user.isAdmin ? hiddenButton : ""}
 			</div>
 		</div>
 	);
