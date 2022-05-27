@@ -15,13 +15,13 @@ export default function Edit() {
 		});
 	}, []);
 
-	const createProductHandler = (e) => {
+	const editProductHandler = (e) => {
 		e.preventDefault();
 
 		const productData = Object.fromEntries(new FormData(e.target));
 
 		productService
-			.createProduct({ ...productData })
+			.editProduct(id, { ...productData })
 			.then(() => navigate("/"))
 			.catch((err) => console.log(err));
 	};
@@ -30,7 +30,7 @@ export default function Edit() {
 		<div className="edit-page-wrapper">
 			<div className="edit-wrapper">
 				<h2>Edit product</h2>
-				<form className="edit-form" method="POST" onSubmit={createProductHandler}>
+				<form className="edit-form" method="POST" onSubmit={editProductHandler}>
 					<label className="edit-from-label" htmlFor="name">
 						Product name
 					</label>
@@ -52,7 +52,7 @@ export default function Edit() {
 					</label>
 					<textarea name="description" rows="7" defaultValue={product.description}></textarea>
 					<div className="edit-button-wrapper">
-						<input className="edit-button" type="submit" value="Create" />
+						<input className="edit-button" type="submit" value="Edit" />
 						<Link className="edit-button" to="/products">
 							Cancel
 						</Link>

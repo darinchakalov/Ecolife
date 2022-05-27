@@ -18,3 +18,14 @@ export const getAllProducts = () => {
 export const getSingleProduct = (id) => {
 	return fetch(`${baseUrl}/products/${id}`).then((res) => res.json());
 };
+
+export const editProduct = (id, product) => {
+	return fetch(`${baseUrl}/products/${id}`, {
+		credentials: "include",
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(product),
+	}).then((res) => res.json());
+};
