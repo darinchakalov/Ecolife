@@ -14,3 +14,7 @@ export const createProduct = (productData) => {
 export const getAllProducts = () => {
 	return fetch(`${baseUrl}/products`).then((res) => res.json());
 };
+
+export const getSingleProduct = (id) => {
+	return fetch(`${baseUrl}/products/${id}`).then((res) => res.json());
+};

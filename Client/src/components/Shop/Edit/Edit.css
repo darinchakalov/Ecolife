@@ -1,0 +1,65 @@
+.edit-page-wrapper {
+	background-image: url(/public/images/berries-background.jpg);
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+.edit-wrapper {
+	margin-top: 2rem;
+	background-color: white;
+	width: 80%;
+	max-width: 1000px;
+	height: 80%;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px rgb(51, 50, 50);
+	display: flex;
+	flex-direction: column;
+}
+
+.edit-form {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	max-width: 700px;
+}
+
+.edit-from-label {
+	text-align: center;
+	font-size: 1rem;
+}
+
+.edit-form-input {
+	border-radius: 5px;
+	border-style: none;
+	background-color: rgb(233, 233, 233);
+	height: 2rem;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.edit-form textarea {
+	background-color: rgb(233, 233, 233);
+	border-radius: 5px;
+	border-style: none;
+}
+
+.edit-button {
+	margin: 1rem;
+	width: 30%;
+	border-style: none;
+	background-color: rgb(52, 84, 203) !important;
+	border-radius: 5px;
+	padding: 0.5rem 0.5rem !important;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+
+.edit-button-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
