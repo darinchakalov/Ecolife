@@ -76,13 +76,6 @@ export default function Header() {
 					</NavLink>
 					<NavLink
 						className="nav-button"
-						to="/about"
-						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
-					>
-						About
-					</NavLink>
-					<NavLink
-						className="nav-button"
 						to="/products"
 						style={({ isActive }) => (isActive ? activeNavStyle : undefined)}
 					>
