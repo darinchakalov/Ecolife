@@ -3,9 +3,11 @@ import { useAuthContext } from "../../../context/AuthContext.js";
 import Swal from "sweetalert2";
 
 import "./Product.css";
+import { useProductContext } from "../../../context/ProductContext.js";
 
 export default function Product({ product }) {
 	const { user } = useAuthContext();
+	const { addProduct } = useProductContext();
 
 	const productDetailsHandler = () => {
 		Swal.fire({
@@ -34,7 +36,8 @@ export default function Product({ product }) {
 	};
 
 	const addToCartHandeler = () => {
-		console.log(product._id);
+		addProduct(product, 1);
+		console.log("product added");
 	};
 
 	const hiddenButton = (

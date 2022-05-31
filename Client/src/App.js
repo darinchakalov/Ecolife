@@ -14,29 +14,32 @@ import Create from "./components/Shop/Create/Create.js";
 import Products from "./components/Shop/Products/Products.js";
 import Edit from "./components/Shop/Edit/Edit.js";
 import Cart from "./components/Shop/Cart/Cart.js";
+import { ProductProvider } from "./context/ProductContext.js";
 
 function App() {
 	return (
 		<AuthProvider>
-			<div className="App">
-				<Header />
+			<ProductProvider>
+				<div className="App">
+					<Header />
 
-				<main className="site-content">
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/products" element={<Products />} />
-						<Route path="/products/create" element={<Create />} />
-						<Route path="/products/edit/:id" element={<Edit />} />
-						<Route path="/cart" element={<Cart />} />
-						<Route path="/contacts" element={<Contacts />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/register" element={<Register />} />
-						<Route path="/profile" element={<Profile />} />
-					</Routes>
-				</main>
+					<main className="site-content">
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/products" element={<Products />} />
+							<Route path="/products/create" element={<Create />} />
+							<Route path="/products/edit/:id" element={<Edit />} />
+							<Route path="/cart" element={<Cart />} />
+							<Route path="/contacts" element={<Contacts />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/register" element={<Register />} />
+							<Route path="/profile" element={<Profile />} />
+						</Routes>
+					</main>
 
-				<Footer />
-			</div>
+					<Footer />
+				</div>
+			</ProductProvider>
 		</AuthProvider>
 	);
 }
