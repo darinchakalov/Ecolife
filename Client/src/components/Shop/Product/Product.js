@@ -37,7 +37,6 @@ export default function Product({ product }) {
 
 	const addToCartHandeler = () => {
 		addProduct(product, 1);
-		console.log("product added");
 	};
 
 	const hiddenButton = (

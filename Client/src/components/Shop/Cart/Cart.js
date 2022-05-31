@@ -5,9 +5,7 @@ import "./Cart.css";
 import CartProduct from "./CartProduct/CartProduct.js";
 
 export default function Cart() {
-	const { products, removeProduct } = useProductContext();
-
-	
+	const { products } = useProductContext();
 
 	const noProductsView = (
 		<div className="no-products">
