@@ -39,21 +39,21 @@ export default function Cart() {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						{product.map((x) => (
-							<td key={x._id} className="product-info">
+					{product.map((x) => (
+						<tr key={x._id}>
+							<td className="cart-product-info">
 								<button className="remove-item-button">
 									<i className="fa-solid fa-circle-xmark"></i>
 								</button>
 								<img src={x.imgUrl} alt="" />
 								<div className="product-name">{x.name}</div>
 							</td>
-						))}
 
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					))}
 					<tr>
 						<td></td>
 						<td></td>
@@ -62,7 +62,7 @@ export default function Cart() {
 					</tr>
 				</tbody>
 			</table>
-			<div className="button-wrapper">
+			<div className="cart-button-wrapper">
 				<div className="cart-buttons">
 					<Link className="cart-button" to="/products">
 						Continue shopping

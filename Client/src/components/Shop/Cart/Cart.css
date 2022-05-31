@@ -54,17 +54,7 @@
 	/* position: absolute; */
 }
 
-.product-wrapper {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-}
-
-.product-wrapper img {
-	width: 100px;
-}
-
-.button-wrapper {
+.cart-button-wrapper {
 	display: flex;
 	gap: 1rem;
 	justify-content: space-between;
@@ -80,7 +70,7 @@ table img {
 table * {
 	text-align: center;
 }
-.product-info {
+.cart-product-info {
 	display: flex;
 	gap: 1rem;
 	align-items: center;
