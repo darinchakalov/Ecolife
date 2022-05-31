@@ -13,6 +13,7 @@ import Profile from "./components/User/Profile/Profile.js";
 import Create from "./components/Shop/Create/Create.js";
 import Products from "./components/Shop/Products/Products.js";
 import Edit from "./components/Shop/Edit/Edit.js";
+import Cart from "./components/Shop/Cart/Cart.js";
 
 function App() {
 	return (
@@ -26,6 +27,7 @@ function App() {
 						<Route path="/products" element={<Products />} />
 						<Route path="/products/create" element={<Create />} />
 						<Route path="/products/edit/:id" element={<Edit />} />
+						<Route path="/cart" element={<Cart />} />
 						<Route path="/contacts" element={<Contacts />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />

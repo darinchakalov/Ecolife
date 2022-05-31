@@ -37,11 +37,15 @@ export default function Header() {
 
 	let loggedInUserNavigation = (
 		<div id="user">
-			<NavLink to="/cart">
-				<Badge badgeContent={4} color="primary">
-					<ShoppingCartIcon className="shopping-cart" color="action" />
-				</Badge>
-			</NavLink>
+			{!user.isAdmin ? (
+				<NavLink to="/cart">
+					<Badge badgeContent={4} color="primary">
+						<ShoppingCartIcon className="shopping-cart" color="action" />
+					</Badge>
+				</NavLink>
+			) : (
+				""
+			)}
 			<Dropdown as={NavItem}>
 				<Dropdown.Toggle className="drop-down-button">
 					<i className="fa-solid fa-user"></i>
