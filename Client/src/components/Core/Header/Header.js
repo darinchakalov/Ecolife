@@ -1,12 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown, NavItem } from "react-bootstrap";
-import "./Header.css";
+
 import { useAuthContext } from "../../../context/AuthContext.js";
-import Badge from "@mui/material/Badge";
+import { useProductContext } from "../../../context/ProductContext.js";
+
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Badge from "@mui/material/Badge";
+
+import "./Header.css";
 
 export default function Header() {
 	const { user, logout } = useAuthContext();
+	const { products } = useProductContext();
+
+	let counter = products.counter;
 
 	const logoutHandler = () => {
 		logout();
@@ -39,7 +46,7 @@ export default function Header() {
 		<div id="user">
 			{!user.isAdmin ? (
 				<NavLink to="/cart">
-					<Badge badgeContent={4} color="primary">
+					<Badge badgeContent={counter} color="primary">
 						<ShoppingCartIcon className="shopping-cart" color="action" />
 					</Badge>
 				</NavLink>

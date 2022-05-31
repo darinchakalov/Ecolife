@@ -5,7 +5,11 @@ import "./Cart.css";
 import CartProduct from "./CartProduct/CartProduct.js";
 
 export default function Cart() {
-	const { products } = useProductContext();
+	const { products, emptyCart } = useProductContext();
+
+	const emptyCartHandler = () => {
+		emptyCart();
+	};
 
 	const noProductsView = (
 		<div className="no-products">
@@ -44,14 +48,12 @@ export default function Cart() {
 					<Link className="cart-button" to="/products">
 						Continue shopping
 					</Link>
-					<button className="cart-button empty-cart" type="">
+					<button className="cart-button empty-cart" onClick={emptyCartHandler}>
 						Empty cart
 					</button>
 				</div>
 				<div className="finish-button">
-					<button className=" cart-button finish" type="">
-						Finish order
-					</button>
+					<button className=" cart-button finish">Finish order</button>
 					{/* <Link className="finish">Finish order</Link> */}
 				</div>
 			</div>
