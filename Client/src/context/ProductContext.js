@@ -19,7 +19,7 @@ const initialState = initiatalStateHandler();
 const reducer = (state, action) => {
 	switch (action.type) {
 		case "ADD_NEW_PRODUCT":
-			if (!state.items.some((e) => e.product._id == action.payload._id)) {
+			if (!state.items.some((e) => e.product._id === action.payload._id)) {
 				return {
 					...state,
 					items: [...state.items, { product: action.payload, productCount: action.quantity }],
@@ -29,7 +29,7 @@ const reducer = (state, action) => {
 				return {
 					...state,
 					items: state.items.map((x) =>
-						x.product._id == action.payload._id
+						x.product._id === action.payload._id
 							? { product: x.product, productCount: x.productCount + 1 }
 							: { product: x.product, productCount: x.productCount }
 					),
@@ -40,7 +40,7 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				items: [...state.items.filter((product) => product !== action.payload)],
-				counter: state.counter - state.items.productCount,
+				counter: state.counter - action.payload.productCount,
 			};
 		case "EMPTY_CART":
 			return { ...state, items: [], counter: 0 };
@@ -64,7 +64,6 @@ export const ProductProvider = ({ children }) => {
 			payload: product,
 			quantity: quantity,
 		});
-		console.log(products);
 		localStorage.setItem("store", JSON.stringify(products));
 	};
 

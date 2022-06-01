@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useProductContext } from "../../../context/ProductContext.js";
 
@@ -6,9 +7,23 @@ import CartProduct from "./CartProduct/CartProduct.js";
 
 export default function Cart() {
 	const { products, emptyCart } = useProductContext();
+	const [total, setTotal] = useState(0);
+
+	useEffect(() => {
+		setTotal(totalPriceCalculation());
+	}, [products]);
 
 	const emptyCartHandler = () => {
 		emptyCart();
+	};
+
+	const totalPriceCalculation = () => {
+		let totalPrice = 0;
+		products.items.forEach((item) => {
+			totalPrice += item.product.price * item.productCount;
+		});
+
+		return totalPrice;
 	};
 
 	const noProductsView = (
@@ -39,7 +54,7 @@ export default function Cart() {
 						<td></td>
 						<td></td>
 						<td></td>
-						<td>Total: </td>
+						<td>Total: ${total}</td>
 					</tr>
 				</tbody>
 			</table>

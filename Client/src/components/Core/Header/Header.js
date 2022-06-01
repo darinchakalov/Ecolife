@@ -14,6 +14,7 @@ export default function Header() {
 	const { products } = useProductContext();
 
 	let counter = products.counter;
+	console.log(counter);
 
 	const logoutHandler = () => {
 		logout();
