@@ -123,3 +123,18 @@
 .modal-container {
 	width: 50vw;
 }
+
+.details-quantity-input {
+	width: 100px;
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	bottom: 15%;
+}
+
+.details-quantity-label {
+	display: inline-block;
+	position: absolute;
+	left: 40%;
+	bottom: 15%;
+}

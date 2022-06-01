@@ -9,8 +9,8 @@ export default function Product({ product }) {
 	const { user } = useAuthContext();
 	const { addProduct } = useProductContext();
 
-	const productDetailsHandler = () => {
-		Swal.fire({
+	const productDetailsHandler = async () => {
+		const { value: quantity } = await Swal.fire({
 			showClass: {
 				popup: "animate__animated animate__fadeInDown",
 			},
@@ -19,6 +19,14 @@ export default function Product({ product }) {
 			},
 			title: product.name,
 			text: product.description,
+			input: "number",
+			inputLabel: "Quantity:",
+			inputValue: 1,
+			inputValidator: (value) => {
+				if (value > product.quantity) {
+					return `Currently we have ${product.quantity} of this product in stock`;
+				}
+			},
 			imageUrl: product.imgUrl,
 			imageAlt: "product image",
 			showCancelButton: true,
@@ -29,10 +37,14 @@ export default function Product({ product }) {
 			customClass: {
 				image: "product-details-image",
 				popup: "modal-container",
+				input: "details-quantity-input",
+				inputLabel: "details-quantity-label",
 			},
-		}).then(() => {
-			console.log("added to cart");
 		});
+
+		if (Number(quantity) <= product.quantity) {
+			addProduct(product, Number(quantity));
+		}
 	};
 
 	const addToCartHandeler = () => {
