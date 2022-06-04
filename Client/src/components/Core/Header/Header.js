@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Dropdown, NavItem } from "react-bootstrap";
 
 import { useAuthContext } from "../../../context/AuthContext.js";
@@ -12,12 +12,14 @@ import "./Header.css";
 export default function Header() {
 	const { user, logout } = useAuthContext();
 	const { products } = useProductContext();
+	const navigate = useNavigate();
 
 	let counter = products.counter;
 	console.log(counter);
 
 	const logoutHandler = () => {
 		logout();
+		navigate("/");
 	};
 
 	let activeNavStyle = {
