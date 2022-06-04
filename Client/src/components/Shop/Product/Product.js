@@ -52,11 +52,12 @@ export default function Product({ product }) {
 	};
 
 	const hiddenButton = (
-		<div className="hidden-button">
+		user.email? <div className="hidden-button">
 			<button className="product-details-button" type="button" onClick={addToCartHandeler}>
 				ADD TO CART
 			</button>
-		</div>
+		</div> : ""
+		
 	);
 
 	const editButton = (
