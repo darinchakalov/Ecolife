@@ -23,7 +23,7 @@
 }
 
 .edit-form-heading {
-    text-align: center;
+	text-align: center;
 }
 
 .edit-form {
@@ -57,7 +57,7 @@
 	margin: 1rem;
 	width: 30%;
 	border-style: none;
-	background-color: rgb(52, 84, 203) !important;
+	background-color: rgb(79, 182, 141) !important;
 	border-radius: 5px;
 	padding: 0.5rem 0.5rem !important;
 	color: white;

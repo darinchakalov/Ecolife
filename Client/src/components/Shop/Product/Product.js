@@ -31,7 +31,7 @@ export default function Product({ product }) {
 			imageAlt: "product image",
 			showCancelButton: true,
 			cancelButtonText: "Close",
-			confirmButtonColor: "#3085d6",
+			confirmButtonColor: "#4FB68D",
 			cancelButtonColor: "grey",
 			confirmButtonText: "Add to cart",
 			customClass: {
