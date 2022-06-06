@@ -58,7 +58,14 @@
 	border-style: none;
 	background-color: rgb(79, 182, 141) !important;
 	border-radius: 5px;
-	/* padding: 0.5rem; */
 	color: white;
 	margin-top: 1rem;
+}
+
+.contact-form-alert {
+	text-align: center;
+}
+
+.contact-from-textarea {
+	margin-bottom: 1rem;
 }

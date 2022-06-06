@@ -2,18 +2,24 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../context/AuthContext.js";
 import * as productService from "../../../services/productService.js";
+import * as notificationService from "../../../services/notificationService.js";
 
 import "./Profile.css";
+import Loader from "../../shared/Loader/Loader.js";
 
 export default function Profile() {
-	const { user } = useAuthContext();
+	const [isLoading, setIsLoading] = useState(true);
 	const [products, setProducts] = useState([]);
+	const { user } = useAuthContext();
 
 	useEffect(() => {
 		productService
 			.getAllProducts()
-			.then((productData) => setProducts(productData))
-			.catch((err) => console.log(err));
+			.then((productData) => {
+				setProducts(productData);
+				setIsLoading(false);
+			})
+			.catch((err) => notificationService.fail(err));
 	}, []);
 
 	const adminButtons = (
@@ -32,18 +38,22 @@ export default function Profile() {
 
 	return (
 		<div className="profile-page-wrapper">
-			<div className="profile-wrapper">
-				<div className="profile-img-wrapper">
-					<img src="/images/user/profile-icon.png" alt="profile" />
-				</div>
-				<div className="profile-data-wrapper">
-					<h2 className="username-header">{user.username}`s account</h2>
-					{user.isAdmin ? <p>Products in the store: {products.length}</p> : ""}
-					{user.isAdmin ? <p>Account type: Admin</p> : <p>Account type: Customer</p>}
+			{isLoading ? (
+				<Loader />
+			) : (
+				<div className="profile-wrapper">
+					<div className="profile-img-wrapper">
+						<img src="/images/user/profile-icon.png" alt="profile" />
+					</div>
+					<div className="profile-data-wrapper">
+						<h2 className="username-header">{user.username}`s account</h2>
+						{user.isAdmin ? <p>Products in the store: {products.length}</p> : ""}
+						{user.isAdmin ? <p>Account type: Admin</p> : <p>Account type: Customer</p>}
 
-					{user.isAdmin ? adminButtons : customerButtons}
+						{user.isAdmin ? adminButtons : customerButtons}
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }
