@@ -9,7 +9,7 @@ export default function Product({ product }) {
 	const { user } = useAuthContext();
 	const { addProduct } = useProductContext();
 
-	const productDetailsHandler = async () => {
+	const productDetailsForUser = async () => {
 		const { value: quantity } = await Swal.fire({
 			showClass: {
 				popup: "animate__animated animate__fadeInDown",
@@ -47,17 +47,57 @@ export default function Product({ product }) {
 		}
 	};
 
+	const productDetailsForGuest = async () => {
+		const { value: quantity } = await Swal.fire({
+			showClass: {
+				popup: "animate__animated animate__fadeInDown",
+			},
+			hideClass: {
+				popup: "animate__animated animate__fadeOutUp",
+			},
+			title: product.name,
+			text: product.description,
+			input: "number",
+			inputLabel: "Quantity:",
+			inputValue: 1,
+			inputValidator: (value) => {
+				if (value > product.quantity) {
+					return `Currently we have ${product.quantity} of this product in stock`;
+				}
+			},
+			imageUrl: product.imgUrl,
+			imageAlt: "product image",
+			showCancelButton: true,
+			cancelButtonText: "Close",
+			confirmButtonColor: "#4FB68D",
+			cancelButtonColor: "grey",
+			showConfirmButton: false,
+			confirmButtonText: "Add to cart",
+			customClass: {
+				image: "product-details-image",
+				popup: "modal-container",
+				input: "details-quantity-input",
+				inputLabel: "details-quantity-label",
+			},
+		});
+
+		if (Number(quantity) <= product.quantity) {
+			addProduct(product, Number(quantity));
+		}
+	};
+
 	const addToCartHandeler = () => {
 		addProduct(product, 1);
 	};
 
-	const hiddenButton = (
-		user.email? <div className="hidden-button">
+	const hiddenButton = user.email ? (
+		<div className="hidden-button">
 			<button className="product-details-button" type="button" onClick={addToCartHandeler}>
 				ADD TO CART
 			</button>
-		</div> : ""
-		
+		</div>
+	) : (
+		""
 	);
 
 	const editButton = (
@@ -72,14 +112,15 @@ export default function Product({ product }) {
 		<div id="product-wrapper" className="product-wrapper">
 			<div className="product-image-wrapper">
 				<img src={product.imgUrl} alt="product" />
-				<button className="hidden-magnifing-glass" type="button" onClick={productDetailsHandler}>
-					<i className="fa-solid fa-magnifying-glass"></i>
-				</button>
-				{/* <Link to={`/products/${product._id}`}>
-					<div className="hidden-magnifing-glass">
+				{user.email && !user.isAdmin ? (
+					<button className="hidden-magnifing-glass" type="button" onClick={productDetailsForUser}>
 						<i className="fa-solid fa-magnifying-glass"></i>
-					</div>
-				</Link> */}
+					</button>
+				) : (
+					<button className="hidden-magnifing-glass" type="button" onClick={productDetailsForGuest}>
+						<i className="fa-solid fa-magnifying-glass"></i>
+					</button>
+				)}
 			</div>
 			<div className="product-info-wrapper">
 				<h5>{product.name}</h5>
