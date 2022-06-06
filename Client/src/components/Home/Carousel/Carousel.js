@@ -1,4 +1,4 @@
-import { Slide, Fade } from "react-slideshow-image";
+import { Fade } from "react-slideshow-image";
 import { Link } from "react-router-dom";
 import "react-slideshow-image/dist/styles.css";
 import "./Carousel.css";
