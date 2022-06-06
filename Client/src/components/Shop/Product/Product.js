@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../context/AuthContext.js";
 import Swal from "sweetalert2";
+import * as notificationService from "../../../services/notificationService.js";
 
 import "./Product.css";
 import { useProductContext } from "../../../context/ProductContext.js";
@@ -43,6 +44,7 @@ export default function Product({ product }) {
 		});
 
 		if (Number(quantity) <= product.quantity) {
+			notificationService.success(`${product.name} added to cart`);
 			addProduct(product, Number(quantity));
 		}
 	};
@@ -88,6 +90,7 @@ export default function Product({ product }) {
 
 	const addToCartHandeler = () => {
 		addProduct(product, 1);
+		notificationService.success(`${product.name} added to cart`);
 	};
 
 	const hiddenButton = user.email ? (

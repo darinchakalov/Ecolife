@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useProductContext } from "../../../context/ProductContext.js";
+import * as notificationService from "../../../services/notificationService.js";
 
 import "./Cart.css";
 import CartProduct from "./CartProduct/CartProduct.js";
@@ -15,6 +16,7 @@ export default function Cart() {
 
 	const emptyCartHandler = () => {
 		emptyCart();
+		notificationService.success("All products removed from cart");
 	};
 
 	const totalPriceCalculation = () => {
@@ -69,7 +71,6 @@ export default function Cart() {
 				</div>
 				<div className="finish-button">
 					<button className=" cart-button finish">Finish order</button>
-					{/* <Link className="finish">Finish order</Link> */}
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,7 @@ import { Dropdown, NavItem } from "react-bootstrap";
 
 import { useAuthContext } from "../../../context/AuthContext.js";
 import { useProductContext } from "../../../context/ProductContext.js";
+import * as notificationService from "../../../services/notificationService.js";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
@@ -15,11 +16,11 @@ export default function Header() {
 	const navigate = useNavigate();
 
 	let counter = products.counter;
-	console.log(counter);
 
 	const logoutHandler = () => {
 		logout();
 		navigate("/");
+		notificationService.success("Logged out successfully");
 	};
 
 	let activeNavStyle = {

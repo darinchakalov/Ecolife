@@ -1,6 +1,7 @@
 import * as authService from "../../../services/authSerivce.js";
 import { useAuthContext } from "../../../context/AuthContext.js";
 import { useNavigate } from "react-router-dom";
+import * as notificationService from "../../../services/notificationService.js";
 
 import "./Login.css";
 
@@ -19,8 +20,9 @@ export default function Login() {
 			.then((loginData) => {
 				login(loginData);
 				navigate("/");
+				notificationService.success("Login successful!");
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => notificationService.fail("Login failed: " + err));
 	};
 
 	return (

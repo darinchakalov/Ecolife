@@ -2,6 +2,8 @@ import * as authSerivce from "../../../services/authSerivce.js";
 import { useAuthContext } from "../../../context/AuthContext.js";
 import { useNavigate } from "react-router-dom";
 
+import * as notificationService from "../../../services/notificationService.js";
+
 import "./Register.css";
 
 export default function Register() {
@@ -16,8 +18,15 @@ export default function Register() {
 
 		authSerivce
 			.register(username, email, password, rePass)
-			.then((userData) => login(userData), navigate("/"))
-			.catch((err) => console.log(err));
+			.then(
+				(userData) => login(userData),
+				navigate("/"),
+				notificationService.success("Registrations successful!")
+			)
+			.catch((err) => {
+				console.log(err);
+				notificationService.fail("Registration failed: " + err);
+			});
 	};
 
 	return (
