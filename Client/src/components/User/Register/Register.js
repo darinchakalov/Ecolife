@@ -8,8 +8,15 @@ import * as notificationService from "../../../services/notificationService.js";
 import "./Register.css";
 import { useState } from "react";
 
+let emailValidationRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
 export default function Register() {
-	const [errors, setErrors] = useState({ name: false, type: false });
+	const [errors, setErrors] = useState({
+		username: { show: false, name: "" },
+		email: { show: false, name: "" },
+		password: { show: false, name: "" },
+		rePass: { show: false, name: "" },
+	});
 	const [passwordInput, setPasswordInput] = useState({
 		password: "",
 		confirmPassword: "",
@@ -28,6 +35,10 @@ export default function Register() {
 			return notificationService.warning("All fields are mandatory!");
 		}
 
+		if (username.length < 4 || !emailValidationRegex.test(email) || password.length < 6 || password !== rePass) {
+			return notificationService.warning("Please fill all inputs correctly");
+		}
+
 		authSerivce
 			.register(username, email, password, rePass)
 			.then(
@@ -41,24 +52,60 @@ export default function Register() {
 			});
 	};
 
-	function onUserChangeHandler(e) {
-		if (!e.target.value) {
-			setErrors((state) => ({ ...state, name: "The field is required", type: "username" }));
-		} else if (e.target.value.length <= 3) {
-			setErrors((state) => ({ ...state, name: "Name should be more than 3 characters", type: "username" }));
-		} else {
-			setErrors((state) => ({ ...state, name: false, type: null }));
-		}
-	}
-
-	const onEmailChangeHandler = (e) => {
-		let emailValidationRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-		if (!e.target.value) {
-			setErrors((state) => ({ ...state, name: "The field is required", type: "email" }));
-		} else if (!emailValidationRegex.test(e.target.value)) {
-			setErrors((state) => ({ ...state, name: "Please use a valid email address", type: "email" }));
-		} else {
-			setErrors((state) => ({ ...state, name: false, type: null }));
+	const onChangeHandler = (e) => {
+		if (e.target.name === "username") {
+			if (!e.target.value) {
+				setErrors((state) => ({
+					...state,
+					username: { show: true, name: "The field is mandatory" },
+				}));
+			} else if (e.target.value.length <= 3) {
+				setErrors((state) => ({
+					...state,
+					username: { show: true, name: "Username should be at least 4 characters long" },
+				}));
+			} else {
+				setErrors((state) => ({ ...state, username: { show: false, name: false } }));
+			}
+		} else if (e.target.name === "email") {
+			if (!e.target.value) {
+				setErrors((state) => ({
+					...state,
+					email: { show: true, name: "The field is mandatory" },
+				}));
+			} else if (!emailValidationRegex.test(e.target.value)) {
+				setErrors((state) => ({ ...state, email: { show: true, name: "Please use a valid email address" } }));
+			} else {
+				setErrors((state) => ({ ...state, email: { show: false, name: "" } }));
+			}
+		} else if (e.target.name === "password") {
+			if (!e.target.value) {
+				setErrors((state) => ({
+					...state,
+					password: { show: true, name: "The field is mandatory" },
+				}));
+			} else if (e.target.value.length <= 5) {
+				setErrors((state) => ({
+					...state,
+					password: { show: true, name: "Password should be more than 5 characters" },
+				}));
+			} else {
+				setErrors((state) => ({
+					...state,
+					password: { show: false, name: "" },
+				}));
+			}
+		} else if (e.target.name === "rePass") {
+			if (!e.target.value) {
+				setErrors((state) => ({
+					...state,
+					rePass: { show: true, name: "The field is mandatory" },
+				}));
+			} else if (passwordInput.password !== passwordInput.confirmPassword) {
+				setErrors((state) => ({ ...state, rePass: { show: true, name: "Password don't match" } }));
+			} else {
+				setErrors((state) => ({ ...state, rePass: { show: false, name: "" } }));
+			}
 		}
 	};
 
@@ -69,29 +116,6 @@ export default function Register() {
 		} else {
 			const newPasswordInput = { ...passwordInput, confirmPassword: e.target.value };
 			setPasswordInput(newPasswordInput);
-		}
-	};
-
-	const onPasswordChangeHandler = (e) => {
-		if (!e.target.value) {
-			setErrors((state) => ({ ...state, name: "The field is required", type: "password" }));
-		} else if (e.target.value.length <= 5) {
-			setErrors((state) => ({ ...state, name: "Password should be more than 5 characters", type: "password" }));
-		} else {
-			setErrors((state) => ({ ...state, name: false, type: null }));
-			// setPass((state) => ({ ...state, password: e.target.value }));
-		}
-	};
-
-	const onRePassChangeHandler = (e) => {
-		if (!e.target.value) {
-			setErrors((state) => ({ ...state, name: "The field is required", type: "rePass" }));
-		} else {
-			if (passwordInput.password !== passwordInput.confirmPassword) {
-				setErrors((state) => ({ ...state, name: "Password don't match", type: "rePass" }));
-			} else {
-				setErrors((state) => ({ ...state, name: false, type: null }));
-			}
 		}
 	};
 
@@ -110,10 +134,10 @@ export default function Register() {
 							type="text"
 							name="username"
 							placeholder="codemonkey12"
-							onChange={onUserChangeHandler}
+							onKeyUp={onChangeHandler}
 						/>
-						<Alert className="contact-form-alert" variant="danger" show={errors.type === "username"}>
-							{errors.name}
+						<Alert className="contact-form-alert" variant="danger" show={errors.username.show}>
+							{errors.username.name}
 						</Alert>
 						<label htmlFor="email">Email</label>
 						<input
@@ -121,10 +145,10 @@ export default function Register() {
 							type="text"
 							name="email"
 							placeholder="ivan@abv.bg"
-							onBlur={onEmailChangeHandler}
+							onKeyUp={onChangeHandler}
 						/>
-						<Alert className="contact-form-alert" variant="danger" show={errors.type === "email"}>
-							{errors.name}
+						<Alert className="contact-form-alert" variant="danger" show={errors.email.show}>
+							{errors.email.name}
 						</Alert>
 						<label htmlFor="password">Password</label>
 						<input
@@ -133,10 +157,10 @@ export default function Register() {
 							name="password"
 							placeholder="******"
 							onChange={onPasswordChange}
-							onKeyUp={onPasswordChangeHandler}
+							onKeyUp={onChangeHandler}
 						/>
-						<Alert className="contact-form-alert" variant="danger" show={errors.type === "password"}>
-							{errors.name}
+						<Alert className="contact-form-alert" variant="danger" show={errors.password.show}>
+							{errors.password.name}
 						</Alert>
 						<label htmlFor="rePass">Repeat Password</label>
 						<input
@@ -145,10 +169,10 @@ export default function Register() {
 							name="rePass"
 							placeholder="*******"
 							onChange={onPasswordChange}
-							onKeyUp={onRePassChangeHandler}
+							onKeyUp={onChangeHandler}
 						/>
-						<Alert className="contact-form-alert" variant="danger" show={errors.type === "rePass"}>
-							{errors.name}
+						<Alert className="contact-form-alert" variant="danger" show={errors.rePass.show}>
+							{errors.rePass.name}
 						</Alert>
 						<input className="register-button" type="submit" value="Register" />
 					</form>
