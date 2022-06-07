@@ -38,7 +38,7 @@ export default function Create() {
 			productData.name.length < 4 ||
 			productData.quantity < 1 ||
 			productData.quantity > 100 ||
-			productData.price < 0.1 ||
+			productData.price < 1 ||
 			!imgUrlValidator.test(
 				productData.imgUrl || productData.description.length < 10 || productData.description.length > 100
 			)
@@ -90,10 +90,10 @@ export default function Create() {
 					...state,
 					price: { show: true, text: "The field is mandatory" },
 				}));
-			} else if (e.target.value < 0.1) {
+			} else if (e.target.value < 1) {
 				setErrors((state) => ({
 					...state,
-					price: { show: true, text: "Price cannot be less than $0.1" },
+					price: { show: true, text: "Price cannot be less than $1.00" },
 				}));
 			} else {
 				setErrors((state) => ({ ...state, price: { show: false, text: "" } }));
