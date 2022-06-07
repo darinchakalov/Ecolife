@@ -47,7 +47,6 @@ export default function Register() {
 				notificationService.success("Registrations successful!")
 			)
 			.catch((err) => {
-				console.log(err);
 				notificationService.fail("Registration failed: " + err);
 			});
 	};

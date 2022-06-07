@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as productService from "../../../services/productService.js";
+import * as notificationService from "../../../services/notificationService.js";
 import Loader from "../../shared/Loader/Loader.js";
 import Product from "../Product/Product.js";
 
@@ -17,7 +18,7 @@ export default function Shop() {
 				setProducts(productsData);
 				setIsLoading(false);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => notificationService.fail(err));
 	}, []);
 
 	const haveProducts = products.map((product) => <Product key={product._id} product={product}></Product>);

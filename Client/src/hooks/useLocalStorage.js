@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as notificationService from "../services/notificationService.js";
 
 export default function useLocalStorage(key, initialValue) {
 	const [state, setState] = useState(() => {
@@ -6,7 +7,7 @@ export default function useLocalStorage(key, initialValue) {
 			let item = localStorage.getItem(key);
 			return item ? JSON.parse(item) : initialValue;
 		} catch (error) {
-			console.log(error);
+			notificationService.fail(error);
 			return initialValue;
 		}
 	});
@@ -16,7 +17,7 @@ export default function useLocalStorage(key, initialValue) {
 			localStorage.setItem(key, JSON.stringify(value));
 			setState(value);
 		} catch (error) {
-			console.log(error);
+			notificationService.fail(error);
 		}
 	};
 
