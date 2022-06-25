@@ -107,6 +107,24 @@ export default function Header() {
 					>
 						Contact us
 					</NavLink>
+					<Dropdown as={NavItem} className="hidden-dropdown">
+						<Dropdown.Toggle className="drop-down-button">
+							<i class="fa-solid fa-bars"></i>
+						</Dropdown.Toggle>
+						<Dropdown.Menu>
+							<Dropdown.Item as={Link} to="/">
+								Home
+							</Dropdown.Item>
+
+							<Dropdown.Item as={Link} to="/products">
+								Shop
+							</Dropdown.Item>
+
+							<Dropdown.Item as={Link} to="/contacts">
+								Contact us
+							</Dropdown.Item>
+						</Dropdown.Menu>
+					</Dropdown>
 				</section>
 				<section className="user-navbar">{user.email ? loggedInUserNavigation : guestNavigation}</section>
 			</nav>

@@ -31,6 +31,7 @@ header {
 
 .main-navbar {
 	display: flex;
+	align-items: center;
 }
 
 .logo {
@@ -51,4 +52,23 @@ header {
 	margin-left: 1rem;
 	background-color: transparent !important;
 	border-style: none !important;
+}
+
+.hidden-dropdown {
+	display: none;
+}
+
+@media screen and (max-width: 670px) {
+	.nav-button {
+		display: none;
+	}
+
+	.navbar { 
+		justify-content: flex-start;
+		width: unset;
+	}
+
+	.hidden-dropdown {
+		display: unset;
+	}
 }
