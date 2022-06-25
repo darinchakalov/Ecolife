@@ -15,6 +15,8 @@ import Products from "./components/Shop/Products/Products.js";
 import Edit from "./components/Shop/Edit/Edit.js";
 import Cart from "./components/Shop/Cart/Cart.js";
 import { ProductProvider } from "./context/ProductContext.js";
+import NotFound from "./components/NotFound/NotFound.js";
+import ThankYou from "./components/Contacts/ThankYou/ThankYou.js";
 
 function App() {
 	return (
@@ -34,6 +36,8 @@ function App() {
 							<Route path="/login" element={<Login />} />
 							<Route path="/register" element={<Register />} />
 							<Route path="/profile" element={<Profile />} />
+							<Route path="/thankyou" element={<ThankYou />} />
+							<Route path="*" element={<NotFound />} />
 						</Routes>
 					</main>
 

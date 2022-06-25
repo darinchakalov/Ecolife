@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Alert } from "react-bootstrap";
 
+const FORM_ENDPOINT = "https://public.herotofu.com/v1/0ffa3500-f4b0-11ec-95d6-ef970076a4ff";
+
 export default function ContactForm() {
 	const [errors, setErrors] = useState({ name: false, type: null });
 	let navigate = useNavigate();
@@ -48,7 +50,6 @@ export default function ContactForm() {
 
 		const { name, email, message } = Object.fromEntries(new FormData(e.currentTarget));
 
-
 		if (!name || !email || !message) {
 			return notificationService.warning("Please fill all fields");
 		} else {
@@ -70,12 +71,13 @@ export default function ContactForm() {
 					<i className="fa-solid fa-phone"></i> Call us: (+800)345678
 				</p>
 				<p>
-					<i className="fa-solid fa-envelope"></i> Email us: demo@ecolife.com
+					<i className="fa-solid fa-envelope"></i> Email us: contacts@ecolife.f4ster.com
 				</p>
 			</div>
 			<div className="contact-form-wrapper">
 				<h2>Contact Us</h2>
-				<form className="contact-form" onSubmit={contactFormSubmitHandler}>
+				{/* <form className="contact-form" onSubmit={contactFormSubmitHandler} action={FORM_ENDPOINT}> */}
+				<form className="contact-form" action={FORM_ENDPOINT} method="POST">
 					<label htmlFor="name">Name</label>
 					<input type="text" name="name" placeholder="Ivan" onBlur={onNameChangeHandler} />
 					<Alert className="contact-form-alert" variant="danger" show={errors.type === "name"}>
