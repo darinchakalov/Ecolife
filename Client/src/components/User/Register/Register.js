@@ -7,10 +7,11 @@ import * as notificationService from "../../../services/notificationService.js";
 
 import "./Register.css";
 import { useState } from "react";
+import { isLoggedInUser } from "../../guards/isLoggedInUser.js";
 
 let emailValidationRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-export default function Register() {
+function Register() {
 	const [errors, setErrors] = useState({
 		username: { show: false, name: "" },
 		email: { show: false, name: "" },
@@ -180,3 +181,6 @@ export default function Register() {
 		</div>
 	);
 }
+
+const GuardedComponent = isLoggedInUser(Register);
+export default GuardedComponent;

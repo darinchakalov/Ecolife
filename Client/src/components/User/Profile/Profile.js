@@ -6,8 +6,9 @@ import * as notificationService from "../../../services/notificationService.js";
 
 import "./Profile.css";
 import Loader from "../../shared/Loader/Loader.js";
+import { isUser } from "../../guards/isUser.js";
 
-export default function Profile() {
+function Profile() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [products, setProducts] = useState([]);
 	const { user } = useAuthContext();
@@ -57,3 +58,6 @@ export default function Profile() {
 		</div>
 	);
 }
+
+const GuardedComponent = isUser(Profile);
+export default GuardedComponent;

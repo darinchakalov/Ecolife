@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import * as notificationService from "../../../services/notificationService.js";
 
 import "./Login.css";
+import { isLoggedInUser } from "../../guards/isLoggedInUser.js";
 
-export default function Login() {
+function Login() {
 	const { login } = useAuthContext();
 
 	const navigate = useNavigate();
@@ -45,3 +46,6 @@ export default function Login() {
 		</div>
 	);
 }
+
+const GuardedComponent = isLoggedInUser(Login);
+export default GuardedComponent;

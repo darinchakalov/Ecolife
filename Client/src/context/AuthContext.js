@@ -22,7 +22,13 @@ export const AuthProvider = ({ children }) => {
 		setUser(initialAuthState);
 	};
 
-	return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>;
+	return (
+		<AuthContext.Provider
+			value={{ user, login, logout, isAuthenticated: Boolean(user.email), isAdmin: Boolean(user.isAdmin) }}
+		>
+			{children}
+		</AuthContext.Provider>
+	);
 };
 
 export const useAuthContext = () => {

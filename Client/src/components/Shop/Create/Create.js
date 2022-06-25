@@ -6,10 +6,11 @@ import * as notificationService from "../../../services/notificationService.js";
 
 import "./Create.css";
 import { useState } from "react";
+import { isAdminUser } from "../../guards/isAdminUser.js";
 
 const imgUrlValidator = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
 
-export default function Create() {
+function Create() {
 	const [errors, setErrors] = useState({
 		name: { text: "", show: false },
 		quantity: { text: "", show: false },
@@ -199,3 +200,6 @@ export default function Create() {
 		</div>
 	);
 }
+
+const GuardedComponent = isAdminUser(Create)
+export default GuardedComponent

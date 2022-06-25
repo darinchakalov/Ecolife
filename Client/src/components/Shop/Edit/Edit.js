@@ -7,10 +7,11 @@ import * as productService from "../../../services/productService.js";
 import * as notificationService from "../../../services/notificationService.js";
 
 import { useEffect, useState } from "react";
+import { isAdminUser } from "../../guards/isAdminUser.js";
 
 const imgUrlValidator = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
 
-export default function Edit() {
+function Edit() {
 	const [errors, setErrors] = useState({
 		name: { text: "", show: false },
 		quantity: { text: "", show: false },
@@ -219,3 +220,6 @@ export default function Edit() {
 		</div>
 	);
 }
+
+const GuardedComponent = isAdminUser(Edit);
+export default GuardedComponent;
