@@ -65,9 +65,13 @@ export default function Header() {
 					<Dropdown.Item as={Link} to="/profile">
 						Profile
 					</Dropdown.Item>
-					<Dropdown.Item as={Link} to="/products/create">
-						Add products
-					</Dropdown.Item>
+					{user.isAdmin ? (
+						<Dropdown.Item as={Link} to="/products/create">
+							Add products
+						</Dropdown.Item>
+					) : (
+						""
+					)}
 					<Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
 				</Dropdown.Menu>
 			</Dropdown>

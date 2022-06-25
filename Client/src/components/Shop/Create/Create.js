@@ -166,6 +166,7 @@ export default function Create() {
 					<input
 						className="create-form-input"
 						type="number"
+						step="any"
 						name="price"
 						placeholder="12.55"
 						onKeyUp={onChangeHandler}

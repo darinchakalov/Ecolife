@@ -176,6 +176,7 @@ export default function Edit() {
 						className="edit-form-input"
 						type="number"
 						name="price"
+						step="any"
 						defaultValue={product.price}
 						onKeyUp={onChangeHandler}
 					/>

@@ -1,4 +1,7 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
+
+import * as notificationService from "../services/notificationService.js";
+
 export const ProductContext = createContext();
 
 const initiatalStateHandler = () => {
@@ -55,7 +58,11 @@ export const ProductProvider = ({ children }) => {
 	const [products, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
-		localStorage.setItem("store", JSON.stringify(products));
+		try {
+			localStorage.setItem("store", JSON.stringify(products));
+		} catch (error) {
+			notificationService.fail(error);
+		}
 	}, [products]);
 
 	const addProduct = (product, quantity) => {
@@ -64,7 +71,11 @@ export const ProductProvider = ({ children }) => {
 			payload: product,
 			quantity: quantity,
 		});
-		localStorage.setItem("store", JSON.stringify(products));
+		try {
+			localStorage.setItem("store", JSON.stringify(products));
+		} catch (error) {
+			notificationService.fail(error);
+		}
 	};
 
 	const removeProduct = (product) => {
@@ -72,14 +83,22 @@ export const ProductProvider = ({ children }) => {
 			type: "REMOVE_PRODUCT",
 			payload: product,
 		});
-		localStorage.setItem("store", JSON.stringify(products));
+		try {
+			localStorage.setItem("store", JSON.stringify(products));
+		} catch (error) {
+			notificationService.fail(error);
+		}
 	};
 
 	const emptyCart = () => {
 		dispatch({
 			type: "EMPTY_CART",
 		});
-		localStorage.setItem("store", JSON.stringify({ items: [], counter: 0 }));
+		try {
+			localStorage.setItem("store", JSON.stringify({ items: [], counter: 0 }));
+		} catch (error) {
+			notificationService.fail(error);
+		}
 	};
 
 	const getProductCount = () => {
