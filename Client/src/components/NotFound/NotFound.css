@@ -1,0 +1,32 @@
+:root {
+    --main-dark-color: rgb(37,50,55)
+}
+
+.not-found-page-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    padding: 25vh;
+}
+
+.not-found-page-wrapper h1 {
+    font-size: 150px;
+    text-shadow: 1px 1px 10px grey;
+}
+
+.not-found-button {
+    background-color: var(--main-dark-color);
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.not-found-button:hover {
+    background-color: white;
+    color: var(--main-dark-color);
+    border: 1px solid var(--main-dark-color);
+}
+
