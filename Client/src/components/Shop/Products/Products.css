@@ -11,7 +11,20 @@
 
 .shop-page-products-wrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
-    width: 90%;
+    width: 100%;
     margin: 2rem;
+    justify-content: flex-start;
+}
+
+.css-1p5q5e5-MuiStack-root {
+    margin: 20px;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
 }

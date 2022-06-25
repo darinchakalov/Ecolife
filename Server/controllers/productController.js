@@ -40,8 +40,10 @@ function getMyProducts(req, res, next) {
 }
 
 function getProductList(req, res, next) {
+	console.log(req.query);
 	const startIndex = +req.query.startIndex || 0;
 	const limit = +req.query.limit || Number.MAX_SAFE_INTEGER;
+	console.log(startIndex, limit);
 	Promise.all([productModel.find().skip(startIndex).limit(limit), productModel.find().countDocuments()])
 		.then(([products, totalResults]) => res.json({ products, totalResults }))
 		.catch(next);

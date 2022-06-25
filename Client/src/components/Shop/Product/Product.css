@@ -10,6 +10,7 @@
 	width: 14rem;
 	min-height: 280px;
 	max-height: 300px;
+	flex-basis: 18%;
 }
 
 .product-image-wrapper {
