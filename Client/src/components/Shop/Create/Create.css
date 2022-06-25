@@ -11,6 +11,7 @@
 	width: 80%;
 	max-width: 1000px;
 	height: 80%;
+	min-height: 620px;
 	max-height: 700px;
 	justify-content: space-around;
 	align-items: center;
