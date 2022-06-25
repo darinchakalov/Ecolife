@@ -8,8 +8,10 @@
 	position: relative;
 	height: 40vh;
 	width: 14rem;
-	min-height: 280px;
-	max-height: 300px;
+	min-height: 380px;
+	min-width: 225px;
+	max-height: 400px;
+	max-width: 300px;
 	flex-basis: 18%;
 }
 
@@ -119,6 +121,7 @@
 .product-details-image {
 	object-fit: contain;
 	width: 80%;
+	max-width: 280px;
 }
 
 .modal-container {
@@ -138,4 +141,10 @@
 	position: absolute;
 	left: 40%;
 	bottom: 15%;
+}
+
+@media screen and (max-width: 600px) {
+	.product-wrapper {
+		flex-basis: 38%;
+	}
 }

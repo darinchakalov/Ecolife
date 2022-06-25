@@ -14,8 +14,9 @@
     flex-wrap: wrap;
     gap: 2rem;
     width: 100%;
-    margin: 2rem;
-    justify-content: flex-start;
+    margin: 3rem auto;
+    justify-content: center;
+    max-width: 1800px;
 }
 
 .css-1p5q5e5-MuiStack-root {
@@ -28,3 +29,4 @@
     display: flex;
     justify-content: flex-end;
 }
+
