@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useProductContext } from "../../../context/ProductContext.js";
 import * as notificationService from "../../../services/notificationService.js";
+import * as productService from "../../../services/productService.js";
 
 import "./Cart.css";
 import CartProduct from "./CartProduct/CartProduct.js";
@@ -9,6 +10,7 @@ import CartProduct from "./CartProduct/CartProduct.js";
 export default function Cart() {
 	const { products, emptyCart } = useProductContext();
 	const [total, setTotal] = useState(0);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		setTotal(totalPriceCalculation());
@@ -36,6 +38,19 @@ export default function Cart() {
 			<Link to="/products">Return to shop</Link>
 		</div>
 	);
+
+	const finishOrderHandler = () => {
+		productService
+			.finishOrder(products.items)
+			.then((data) => {
+				notificationService.success("Thank you for your order. We will ship it immediately");
+				emptyCart();
+				setTimeout(() => {
+					navigate("/");
+				}, 3000);
+			})
+			.catch((err) => notificationService.fail(err));
+	};
 
 	const productView = (
 		<div className="hasProducts">
@@ -70,7 +85,9 @@ export default function Cart() {
 					</button>
 				</div>
 				<div className="finish-button">
-					<button className=" cart-button finish">Finish order</button>
+					<button onClick={finishOrderHandler} className=" cart-button finish">
+						Finish order
+					</button>
 				</div>
 			</div>
 		</div>

@@ -40,3 +40,22 @@ export const editProduct = (id, product) => {
 		body: JSON.stringify(product),
 	}).then((res) => res.json());
 };
+
+export const finishOrder = async (products) => {
+	let res = await fetch(`${baseUrl}/products/finish`, {
+		credentials: "include",
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(products),
+	});
+
+	let jsonRes = await res.json();
+
+	if (res.ok) {
+		return jsonRes;
+	} else {
+		throw jsonRes.message;
+	}
+};
