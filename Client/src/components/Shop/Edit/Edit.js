@@ -7,7 +7,7 @@ import * as productService from "../../../services/productService.js";
 import * as notificationService from "../../../services/notificationService.js";
 
 import { useEffect, useState } from "react";
-import { isAdminUser } from "../../guards/isAdminUser.js";
+import { isAdminUser } from "../../../guards/isAdminUser.js";
 
 const imgUrlValidator = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
 

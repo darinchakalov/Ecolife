@@ -6,7 +6,7 @@ import * as notificationService from "../../../services/notificationService.js";
 
 import "./Profile.css";
 import Loader from "../../shared/Loader/Loader.js";
-import { isUser } from "../../guards/isUser.js";
+import { isUser } from "../../../guards/isUser.js";
 
 function Profile() {
 	const [isLoading, setIsLoading] = useState(true);

@@ -6,7 +6,7 @@ import * as notificationService from "../../../services/notificationService.js";
 
 import "./Create.css";
 import { useState } from "react";
-import { isAdminUser } from "../../guards/isAdminUser.js";
+import { isAdminUser } from "../../../guards/isAdminUser.js";
 
 const imgUrlValidator = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
 
