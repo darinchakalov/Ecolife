@@ -109,7 +109,7 @@ export default function Header() {
 					</NavLink>
 					<Dropdown as={NavItem} className="hidden-dropdown">
 						<Dropdown.Toggle className="drop-down-button">
-							<i class="fa-solid fa-bars"></i>
+							<i className="fa-solid fa-bars"></i>
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							<Dropdown.Item as={Link} to="/">

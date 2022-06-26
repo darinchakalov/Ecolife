@@ -1,4 +1,4 @@
-# REST-api for Angular ecommerce project
+# REST-api for a React ecommerce project
 
 ## Getting started
 

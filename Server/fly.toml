@@ -1,7 +1,6 @@
-# fly.toml file generated for angular-product-rest-api on 2022-04-12T06:37:39+03:00
+# fly.toml file generated for ecolife on 2022-06-26T07:37:39+03:00
 
-app = "angular-product-rest-api"
-
+app = "ecolife"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -22,7 +21,6 @@ processes = []
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
-
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20
