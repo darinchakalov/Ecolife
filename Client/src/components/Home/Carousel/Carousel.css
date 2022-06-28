@@ -39,3 +39,20 @@
 	background-color: rgb(37, 50, 55);
 	color: white;
 }
+
+@media screen and (max-width: 1024px) {
+	.slider-button {
+		width: 60%;
+		margin: 1rem 0;
+	}
+
+	.slider-text-container {
+		position: unset;
+		text-shadow: 1px 1px 1px grey;
+	}
+
+	.slider-div {
+		align-items: flex-start;
+		width: 100%;
+	}
+}
