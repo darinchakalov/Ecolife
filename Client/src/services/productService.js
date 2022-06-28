@@ -1,5 +1,5 @@
-const baseUrl = "http://localhost:3030/api";
-// const baseUrl = "https://ecolife2.fly.dev/api";
+// const baseUrl = "http://localhost:3030/api";
+const baseUrl = "https://ecolife2.fly.dev/api";
 
 export const createProduct = (productData) => {
 	return fetch(`${baseUrl}/products`, {

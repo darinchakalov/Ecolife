@@ -148,3 +148,17 @@
 		flex-basis: 38%;
 	}
 }
+
+@media screen and (max-width: 1024px) {
+	.modal-container {
+		width: 90%;
+	}
+
+	.details-quantity-input {
+		display: none;
+	}
+
+	.details-quantity-label {
+		display: none;
+	}
+}

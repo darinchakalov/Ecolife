@@ -1,5 +1,5 @@
-const baseUrl = "http://localhost:3030/api";
-// const baseUrl = "https://ecolife2.fly.dev/api";
+// const baseUrl = "http://localhost:3030/api";
+const baseUrl = "https://ecolife2.fly.dev/api";
 
 export const register = async (username, email, password, rePass) => {
 	let res = await fetch(`${baseUrl}/register`, {

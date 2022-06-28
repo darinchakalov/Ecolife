@@ -59,9 +59,9 @@ export default function Product({ product }) {
 			},
 			title: product.name,
 			text: product.description,
-			input: "number",
-			inputLabel: "Quantity:",
-			inputValue: 1,
+			// input: "number",
+			// inputLabel: "Quantity:",
+			// inputValue: 1,
 			inputValidator: (value) => {
 				if (value > product.quantity) {
 					return `Currently we have ${product.quantity} of this product in stock`;
