@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was generated with [Create React App](https://github.com/facebook/create-react-app) version 5.0.1.
 
-## Available Scripts
+It is an ecommerce website which has two types of users: admins and customers.
 
-In the project directory, you can run:
+Admin users can create, edit and delete products.
 
-### `npm start`
+Customers can add products to shopping cart and finish their order. Only logged in users can add products to their cart.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## App Details
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app is based on React + Node.js + Express.js + MongoDB.
 
-### `npm test`
+## Development server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run `npm start` for a dev server within the app folder. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
-### `npm run build`
+## RESTful API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The following endpoints are supported:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+GET /api/products - list all products
+GET /api/products/:id - get details about given product
+POST /api/products - create a new product
+PUT /api/products/:id - edit given product
+DELETE /api/products/:id - delete given product
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run `npm start` for a dev api server within the api folder. The api will be available at `http://localhost:3030/`.
 
-### `npm run eject`
+## Live site
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The application has been build and deployed onto a hosting enviroment and is publicly available at: `https://ecolife.f4ster.com`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Run `npm run build` to build the project. The build artifacts will be stored in the `build/` directory.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Screenshots
+![screenshot-localhost_3000-2022 08 12-09_26_11](https://user-images.githubusercontent.com/19432229/184297524-4d6fdf62-a2ed-403d-8a83-c7461f691a01.png)
+![screenshot-localhost_3000-2022 08 12-09_26_32](https://user-images.githubusercontent.com/19432229/184297569-bd95e510-3c3c-4972-91b3-5a53dbaec6df.png)
+![screenshot-localhost_3000-2022 08 12-09_26_38](https://user-images.githubusercontent.com/19432229/184297581-aff58af7-e55d-48b6-81ea-51b63103692d.png)
+![screenshot-localhost_3000-2022 08 12-09_26_57](https://user-images.githubusercontent.com/19432229/184297587-b16b3192-8bc5-4870-961d-27834734dcbb.png)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
